@@ -1,5 +1,10 @@
 require 'net/http'
 
+# + -- TODO ---------------------------------------------------------- +
+# + テスト用のJSONデータを作成し，開発環境ではJSONデータを読み込む
+# + msgを送信したuserに対してmsgを送り返す
+# + ------------------------------------------------------------------ +
+
 # == LINE BOTのコールバッククラス
 class CallbacksController < ApplicationController
 	def callback
@@ -8,11 +13,14 @@ class CallbacksController < ApplicationController
 		client = Net::HTTP.new(uri.host, 443)
 		client.use_ssl = true
 
-		# メッセージの受信
-		# jsonのフォーマットは以下を参照
+		# メッセージの受信．JSONフォーマットは以下を参照
 		# https://developers.line.me/bot-api/api-reference
 		received_body = JSON.parse(request.body.read)["result"][0]
 		msg = received_body["content"]["text"]
+
+		puts "==========="
+		puts request.body
+		puts "==========="
 
 		# Header
 		header = {
