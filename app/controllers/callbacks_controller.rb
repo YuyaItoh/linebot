@@ -11,8 +11,8 @@ class CallbacksController < ApplicationController
 		# メッセージの受信
 		# jsonのフォーマットは以下を参照
 		# https://developers.line.me/bot-api/api-reference
-		received_body = JSON.parse(request.body.read)[:result][0]
-		msg = line_mes[:content][:text]
+		received_body = JSON.parse(request.body.read)["result"][0]
+		msg = line_mes["content"]["text"]
 
 		# Header
 		header = {
