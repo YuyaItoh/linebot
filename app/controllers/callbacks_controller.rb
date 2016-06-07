@@ -8,6 +8,12 @@ class CallbacksController < ApplicationController
 		client = Net::HTTP.new(uri.host, 443)
 		client.use_ssl = true
 
+		# メッセージの受信
+		# jsonのフォーマットは以下を参照
+		# https://developers.line.me/bot-api/api-reference
+		received_body = JSON.parse(request.body.read)[:result][0]
+		msg = line_mes[:content][:text]
+
 		# Header
 		header = {
 			"Content-Type" => "application/json; charser=UTF-8",
@@ -21,20 +27,12 @@ class CallbacksController < ApplicationController
 			to: ["u09c5d823b2ae5c793995854066c7fa4d"],
 			toChannel:1383378250,
 			eventType:"138311608800106203",
-			content: { contentType:1, toType:1, text: "ほげ" } 
+			content: { contentType:1, toType:1, text: (msg + "にゃん") } 
 		}
 
-		# メッセージ送信はpostメソッド
-		# 他にもGETのAPIでいろいろと情報をとることもできるみたい...
-		res = client.post("/v1/events", body.to_json, header)
+		# メッセージの送信
+		client.post("/v1/events", body.to_json, header)
 
-
-		# resはこんな感じ
-		# {"failed":[],"messageId":"1234567890123","timestamp":1234567890123,"version":1}
-		# 送信先のMIDが違うと
-		# {"statusCode":"401","statusMessage":"INVALID_MID"}
-		# が返ってくる
-		puts res.body
 
 		render json: "{hoge: fuga}"
 	end
