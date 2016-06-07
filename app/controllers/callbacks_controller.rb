@@ -12,9 +12,9 @@ class CallbacksController < ApplicationController
 		# Header
 		header = {
 			"Content-Type" => "application/json; charser=UTF-8",
-			'X-Line-ChannelID' => "1469866241",
-			'X-Line-ChannelSecret' => "edf3caf1e2e430527de85c5e0ea011dd",
-			'X-Line-Trusted-User-With-ACL' => "u2abd1a7fdcb16c855aeec95b812df44b"
+			'X-Line-ChannelID' => CHANNEL_ID,
+			'X-Line-ChannelSecret' => CHANNEL_SECRET,
+			'X-Line-Trusted-User-With-ACL' => MID
 		}
 
 		# メッセージ送信用のbody
