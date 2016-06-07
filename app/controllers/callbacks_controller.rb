@@ -12,7 +12,7 @@ class CallbacksController < ApplicationController
 		# jsonのフォーマットは以下を参照
 		# https://developers.line.me/bot-api/api-reference
 		received_body = JSON.parse(request.body.read)["result"][0]
-		msg = line_mes["content"]["text"]
+		msg = received_body["content"]["text"]
 
 		# Header
 		header = {
