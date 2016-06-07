@@ -3,7 +3,6 @@ require 'net/http'
 # == LINE BOTのコールバッククラス
 class CallbacksController < ApplicationController
 	def callback
-
 		# URI
 		uri = URI.parse('https://trialbot-api.line.me')
 		client = Net::HTTP.new(uri.host, 443)
