@@ -1,7 +1,6 @@
 require 'net/http'
 
 # + -- TODO ---------------------------------------------------------- +
-# + テスト用のJSONデータを作成し，開発環境ではJSONデータを読み込む
 # + msgを送信したuserに対してmsgを送り返す
 # + ------------------------------------------------------------------ +
 
@@ -17,10 +16,7 @@ class CallbacksController < ApplicationController
 		# https://developers.line.me/bot-api/api-reference
 		received_body = JSON.parse(request.body.read)["result"][0]
 		msg = received_body["content"]["text"]
-
-		puts "==========="
-		puts request.body
-		puts "==========="
+		user = received_body["content"]["from"]
 
 		# Header
 		header = {
@@ -32,7 +28,7 @@ class CallbacksController < ApplicationController
 
 		# メッセージ送信用のbody
 		body = {
-			to: ["u09c5d823b2ae5c793995854066c7fa4d"],
+			to: [user],
 			toChannel:1383378250,
 			eventType:"138311608800106203",
 			content: { contentType:1, toType:1, text: (msg + "にゃん") } 
