@@ -8,6 +8,26 @@ class Cron
 
   # なんか適当にしゃべる
   def self.say_something
-    Api.send_message("u09c5d823b2ae5c793995854066c7fa4d", "ぽんだにゃん")
-  end 
+    # URI
+    uri = URI.parse('https://trialbot-api.line.me')
+    client = Net::HTTP.new(uri.host, 443)
+    client.use_ssl = true
+
+    # 送信 
+    header = {
+      "Content-Type" => "application/json; charser=UTF-8",
+      'X-Line-ChannelID' => CHANNEL_ID,
+      'X-Line-ChannelSecret' => CHANNEL_SECRET,
+      'X-Line-Trusted-User-With-ACL' => MID
+    }
+
+    body = {
+      to: ["u09c5d823b2ae5c793995854066c7fa4d"],
+      toChannel:1383378250,
+      eventType:"138311608800106203",
+      content: { contentType:1, toType:1, text: "にゃー" } 
+    }
+
+    client.post("/v1/events", body.to_json, header)
+  end
 end
