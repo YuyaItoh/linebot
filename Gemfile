@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'json'
 
+# cronを実行
+gem 'whenever', require: false
+
 # passengerで利用するらしい？
 gem 'execjs'
 
