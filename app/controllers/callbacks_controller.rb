@@ -27,11 +27,12 @@ class CallbacksController < ApplicationController
 
     s_msg = r_msg + "だにゃん"
 
+
     body = {
-      to: [to],
+      to: [user],
       toChannel:1383378250,
       eventType:"138311608800106203",
-      content: { contentType:1, toType:1, text: r_msg } 
+      content: { contentType:1, toType:1, text: s_msg } 
     }
 
     client.post("/v1/events", body.to_json, header)
