@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+# capistrano
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
+gem 'capistrano-rbenv'
+gem 'capistrano-withrsync'
+
 gem 'json'
 
 # cronを実行
