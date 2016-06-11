@@ -6,7 +6,6 @@ gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'capistrano-rbenv'
 gem 'capistrano-passenger'
-gem 'capistrano-withrsync'
 
 gem 'json'
 
