@@ -23,12 +23,16 @@ class CallbacksController < ApplicationController
     if received_body["opType"].present? &&  recevied_body["opType"] == 4
       # TODO Userモデルに追加する
       s_msg = "ぽんすだにゃん！"
+      
+      logger.debug("added as a friend -- #{user}")
     end
 
     # メッセージ受信時の処理
     if received_body["content"]["text"].present?
       r_msg = received_body["content"]["text"]
       s_msg = r_msg + "だにゃん"
+
+      logger.debug("msg received -- #{r_msg}")
     end
 
 
