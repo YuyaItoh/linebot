@@ -39,21 +39,13 @@ set :keep_releases, 5
 set :rbenv_type, :user
 set :rbenv_ruby, '2.2.0'
 
+# wheneverと連動
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}"}
+
 # サーバ設定
 server 'yy-sn.com', user: 'y-itoh', role: %w{web app db}
 
+
 # タスクの設定
 namespace :deploy do
-  after :publishing, :restart
-
-  # database.ymlをアップロード
-  desc 'Upload database.yml'
-  task :uplodad_database do
-    on roles(:app) do |host|
-      if test "[ ! -d #{shared_path}/config ]"
-        execute "mkdir -p #{shared_path}/config"
-      end
-      upload!('config/database.yml', "#{shared_path/config/database.yml}")
-    end
-  end
 end
