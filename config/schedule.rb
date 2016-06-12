@@ -5,7 +5,7 @@ set :output, {error: 'log/error_cron.log', standard: 'log/cron.log'}
 set :environment, :development
 
 # スケジュール
-every 3.hours do
+every 1.minutes do
   # cronのコマンドライン上で動くのでクォートで囲む
   runner 'Cron.say_something'
 end
