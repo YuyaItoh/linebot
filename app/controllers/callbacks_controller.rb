@@ -18,13 +18,14 @@ class CallbacksController < ApplicationController
     # 
     received_body = JSON.parse(request.body.read)["result"][0]
     user = received_body["from"]
+    logger.debug("[DEBUG] user mid: #{user}")
 
     # フレンド登録時の処理
     if received_body["opType"].present? &&  recevied_body["opType"] == 4
       # TODO Userモデルに追加する
       s_msg = "ぽんすだにゃん！"
       
-      logger.debug("added as a friend -- #{user}")
+      logger.debug("[DEBUG] added as a friend -- #{user}")
     end
 
     # メッセージ受信時の処理
@@ -32,7 +33,7 @@ class CallbacksController < ApplicationController
       r_msg = received_body["content"]["text"]
       s_msg = r_msg + "だにゃん"
 
-      logger.debug("msg received -- #{r_msg}")
+      logger.debug("[DEBUG] msg received -- #{r_msg}")
     end
 
 
