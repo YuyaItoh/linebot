@@ -24,10 +24,10 @@ set :format, :pretty
 set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_files, %w{config/database.yml}
 
 # Default value for linked_dirs is []
-set :linked_dirs, fetch(:linked_dirs, []).push('log')
+set :linked_dirs, %w{bin bundle log tmp/pids tmp/cache tmp/sockets public/system}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -44,18 +44,7 @@ server 'yy-sn.com', user: 'y-itoh', role: %w{web app db}
 
 # タスクの設定
 namespace :deploy do
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-    end
-  end
-
   after :publishing, :restart
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wailt: 10 do
-    end
-  end
 
   # database.ymlをアップロード
   desc 'Upload database.yml'
