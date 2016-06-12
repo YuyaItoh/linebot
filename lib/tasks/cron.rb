@@ -22,7 +22,7 @@ class Cron
     }
 
     body = {
-      to: ["u09c5d823b2ae5c793995854066c7fa4d"],
+      to: ["u375db29de1dc8806fed21d85a27a057a"],
       toChannel:1383378250,
       eventType:"138311608800106203",
       content: { contentType:1, toType:1, text: "にゃー" } 
