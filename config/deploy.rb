@@ -42,10 +42,6 @@ set :rbenv_ruby, '2.2.0'
 # wheneverと連動
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
-# サーバ設定
-server 'yy-sn.com', user: 'y-itoh', role: %w{web app db}
-
-
 # タスクの設定
 namespace :deploy do
 end
