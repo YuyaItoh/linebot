@@ -1,0 +1,26 @@
+{
+  "result": [
+    {
+      "content": {
+        "params": [
+          "u09c5d823b2ae5c793995854066c7fa4d",
+          null,
+          null
+        ],
+        "message": null,
+        "reqSeq": 0,
+        "revision": 657,
+        "opType": 4
+      },
+      "createdTime": 1465722340641,
+      "eventType": "138311609100106403",
+      "from": "u206d25c2ea6bd87c17655609a1c37cb8",
+      "fromChannel": 1341301815,
+      "id": "WB1520-3515801934",
+      "to": [
+        "u2abd1a7fdcb16c855aeec95b812df44b"
+      ],
+      "toChannel": 1469866241
+    }
+  ]
+}

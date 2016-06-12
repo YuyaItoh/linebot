@@ -1,0 +1,33 @@
+{
+  "result": [
+    {
+      "content": {
+        "toType": 1,
+        "createdTime": 1465721937693,
+        "from": "u09c5d823b2ae5c793995854066c7fa4d",
+        "location": null,
+        "id": "4451567648161",
+        "to": [
+          "u2abd1a7fdcb16c855aeec95b812df44b"
+        ],
+        "text": "お",
+        "contentMetadata": {
+          "AT_RECV_MODE": "2",
+          "SKIP_BADGE_COUNT": "true"
+        },
+        "deliveredTime": 0,
+        "contentType": 1,
+        "seq": null
+      },
+      "createdTime": 1465721937709,
+      "eventType": "138311609000106303",
+      "from": "u206d25c2ea6bd87c17655609a1c37cb8",
+      "fromChannel": 1341301815,
+      "id": "WB1520-3515782610",
+      "to": [
+        "u2abd1a7fdcb16c855aeec95b812df44b"
+      ],
+      "toChannel": 1469866241
+    }
+  ]
+}
