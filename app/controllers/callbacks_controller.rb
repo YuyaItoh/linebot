@@ -20,7 +20,7 @@ class CallbacksController < ApplicationController
     logger.debug(request.body.read)
 
     received_body = JSON.parse(request.body.read)["result"][0]
-    user = received_body["from"]
+    user = received_body["content"]["from"]
     logger.debug("[DEBUG] user mid: #{user}")
 
     # フレンド登録時の処理
