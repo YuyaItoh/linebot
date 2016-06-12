@@ -16,6 +16,9 @@ class CallbacksController < ApplicationController
     # 
     # 受信
     # 
+    logger.debug("[DEBUG] JSON -----------------------")
+    logger.debug(request.body.read)
+
     received_body = JSON.parse(request.body.read)["result"][0]
     user = received_body["from"]
     logger.debug("[DEBUG] user mid: #{user}")
