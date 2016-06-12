@@ -30,7 +30,6 @@ class CallbacksController < ApplicationController
     logger.debug(request.body.read)
 
     received_body = JSON.parse(request.body.read)["result"][0]
-    logger.debug("[DEBUG] user mid: #{user}")
 
 
     # 
