@@ -3,6 +3,11 @@ require 'net/http'
 # == LINE BOTのコールバッククラス
 class CallbacksController < ApplicationController
   def callback
+
+    # TODO: コールバックの種類による分岐処理
+    # eventTypeによってmsg取得とフレンド登録が分かる
+    # from とかは基本contentの中身を見ればよい
+
     # URI
     uri = URI.parse('https://trialbot-api.line.me')
     client = Net::HTTP.new(uri.host, 443)
@@ -12,8 +17,20 @@ class CallbacksController < ApplicationController
     # 受信
     # 
     received_body = JSON.parse(request.body.read)["result"][0]
-    r_msg = received_body["content"]["text"]
-    user = received_body["content"]["from"]
+    user = received_body["from"]
+
+    # フレンド登録時の処理
+    if received_body["opType"].present? &&  recevied_body["opType"] == 4
+      # TODO Userモデルに追加する
+      s_msg = "ぽんすだにゃん！"
+    end
+
+    # メッセージ受信時の処理
+    if received_body["content"]["text"].present?
+      r_msg = received_body["content"]["text"]
+      s_msg = r_msg + "だにゃん"
+    end
+
 
     # 
     # 送信
@@ -24,9 +41,6 @@ class CallbacksController < ApplicationController
       'X-Line-ChannelSecret' => CHANNEL_SECRET,
       'X-Line-Trusted-User-With-ACL' => MID
     }
-
-    s_msg = r_msg + "だにゃん"
-
 
     body = {
       to: [user],
