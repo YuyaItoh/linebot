@@ -6,7 +6,10 @@ class CallbacksController < ApplicationController
 
     # TODO: コールバックの種類による分岐処理
     # eventTypeによってmsg取得とフレンド登録が分かる
-    # from とかは基本contentの中身を見ればよい
+    # fromはcontentの中身を見ること!
+
+    # TODO: capistranoでデプロイ時にpassengerが再起動するようにする
+    # TODO: capistrano+wheneverで正しいcron命令ができるようにする
 
     # URI
     uri = URI.parse('https://trialbot-api.line.me')
