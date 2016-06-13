@@ -50,7 +50,7 @@ class CallbacksController < ApplicationController
       s_msg = "#{name}さん，こんにちはだにゃん．ぽんすだにゃん"
 
       # DBに追加
-      User.create(name: :name, mid: :mid)
+      User.create(name: name, mid: mid)
       logger.debug("[DEBUG] added as a friend -- #{name}, #{mid}")
     end
 
