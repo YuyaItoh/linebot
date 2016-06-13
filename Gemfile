@@ -17,7 +17,8 @@ gem 'whenever', require: false
 gem 'execjs'
 
 # msyql
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
