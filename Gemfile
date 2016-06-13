@@ -7,13 +7,17 @@ gem 'capistrano-bundler'
 gem 'capistrano-rbenv'
 gem 'capistrano-passenger'
 
+# json
 gem 'json'
 
-# cronを実行
+# cron
 gem 'whenever', require: false
 
-# passengerで利用するらしい？
+# passengerで利用
 gem 'execjs'
+
+# msyql
+gem 'mysql2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
