@@ -19,8 +19,8 @@ class CallbacksController < ApplicationController
       'X-Line-Trusted-User-With-ACL' => MID
     }
 
-    # メッセージ送信相手
-    mid = ""
+    mid = ""    # msg送信相手
+    s_msg = ""  # 送信内容
 
 
     # 
@@ -47,8 +47,10 @@ class CallbacksController < ApplicationController
       name = response["contacts"][0]["displayName"]
       mid = response["contacts"][0]["mid"]
 
+      s_msg = "#{name}さん，こんにちはだにゃん．ぽんすだにゃん"
+
       # DBに追加
-      logger.debug("[DEBUG] added as a friend -- #{name}, #{user}")
+      logger.debug("[DEBUG] added as a friend -- #{name}, #{mid}")
     end
 
 
