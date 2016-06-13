@@ -35,7 +35,7 @@ class CallbacksController < ApplicationController
     # 
     # フレンド登録時の処理
     # 
-    if received_body["opType"].present? &&  recevied_body["opType"] == 4
+    if received_body["content"]["opType"].present? &&  recevied_body["content"]["opType"] == 4
 
       profile_mid = received_body["content"]["params"][0]
       profile_uri = "https://trialbot-api.line.me/v1/profiles?mids=#{profile_mid}"
